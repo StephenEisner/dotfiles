@@ -1,0 +1,23 @@
+Config { font = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           ]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#001f4d"
+       , fgColor = "#1a75ff"
+       , alpha = 255
+       , position = TopW L 100
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [
+             Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
+            , Run Memory ["-t","Mem: <usedratio>%"] 10
+            , Run Swap [] 10
+            , Run Date "<fn=2>\xf017</fn> %a %Y-%m-%d %H:%M:%S" "date" 10
+            , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "  <fc=#E6E6FA>%StdinReader%</fc> }{ %cpu% | %memory% | <fc=#009933>%date%</fc>  " }
